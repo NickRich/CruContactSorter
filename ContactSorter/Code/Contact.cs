@@ -10,6 +10,7 @@ namespace ContactSorter
     {
         #region ---Global Variables---
         private string name;
+        private string grade;
         private string building;
         private string room;
         private string gender;
@@ -21,18 +22,19 @@ namespace ContactSorter
         private bool talkedWith;
         #endregion
 
-        public Contact(string name, string building, string room, string gender, string religion,
-            string relationInterest, string cruInfo, string convoInterest, string race)
+        public Contact(string name, string gender, string race, string grade, string building, string room,string religion,
+            string relationInterest, string cruInfo, string convoInterest)
         {
             this.name = name;
+            this.grade = grade;
             this.building = building;
             this.room = room;
             this.gender = gender;
+            this.race = race;
             this.religion = religion;
             this.relationInterest = relationInterest;
             this.cruInfo = cruInfo;
             this.convoInterest = convoInterest;
-            this.race = race;
             this.talkedWith = false;
         }
 

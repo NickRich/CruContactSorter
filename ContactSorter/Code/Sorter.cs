@@ -8,6 +8,9 @@ using System.Collections;
 using System.Resources;
 using ContactSorter.Properties;
 
+using Excel = Microsoft.Office.Interop.Excel;
+
+
 namespace ContactSorter
 {
     class Sorter
@@ -97,7 +100,10 @@ namespace ContactSorter
         {
             parseExistingContacts();
             parseNewContacts();
+            sortLists();
         }
+
+        #region ---Parsing Contacts---
 
         private void parseExistingContacts()
         {
@@ -111,7 +117,8 @@ namespace ContactSorter
                         continue;
 
                     string[] cntcInfo = cntc.Split('\t');
-                    Contact newContact = new Contact(cntcInfo[0], cntcInfo[1], cntcInfo[2], cntcInfo[3], cntcInfo[4], cntcInfo[5], cntcInfo[6], cntcInfo[7], cntcInfo[8]);
+                    Contact newContact = new Contact(cntcInfo[0], cntcInfo[1], cntcInfo[2], cntcInfo[3], cntcInfo[4], cntcInfo[5],
+                        cntcInfo[6], cntcInfo[7], cntcInfo[8], cntcInfo[9]);
                     if (!targetAreaLists[i].Contains(newContact))
                     {
                         targetAreaLists[i].Add(newContact);
@@ -131,7 +138,7 @@ namespace ContactSorter
 
                 string[] newContactInfo = newCntct.Split('\t');
                 Contact newContact = new Contact(newContactInfo[0], newContactInfo[1], newContactInfo[2], newContactInfo[3], newContactInfo[4],
-                    newContactInfo[5], newContactInfo[6], newContactInfo[7], newContactInfo[8]);
+                    newContactInfo[5], newContactInfo[6], newContactInfo[7], newContactInfo[8], newContactInfo[9]);
 
                 List<Contact> currentArea = DetermineTargetArea(newContact);
 
@@ -215,6 +222,23 @@ namespace ContactSorter
                     return windsorWood;
             }
             return null;
+        }
+        #endregion
+
+        private void sortLists()
+        {
+            foreach (List<Contact> cntctList in targetAreaLists)
+            {
+                cntctList.Sort(delegate (Contact c1, Contact c2) { return c1.Room.CompareTo(c2.Room); });
+            }
+        }
+
+        private void writeContacts()
+        {
+            foreach (List<Contact> list in targetAreaLists)
+            {
+
+            }
         }
     }
 }
