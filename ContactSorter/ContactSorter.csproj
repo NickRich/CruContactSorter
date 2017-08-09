@@ -59,6 +59,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -197,7 +198,7 @@
     <None Include="Resources\ThirdStreet_Men.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ThirdStreetWomen.txt" />
+    <None Include="Resources\ThirdStreet_Women.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
+using System.Collections;
+using System.Resources;
+using ContactSorter.Properties;
 
 namespace ContactSorter
 {
     class Sorter
     {
         #region ---Global Variables---
+        private int numTargetAreas;
+
+        #region ---Lists---
+        private List<string> targetAreaFiles;
         private List<List<Contact>> targetAreaLists;
         private List<Contact> caryE = new List<Contact>();
         private List<Contact> caryNE = new List<Contact>();
@@ -58,13 +66,31 @@ namespace ContactSorter
         private List<Contact> windsorWood = new List<Contact>();
         #endregion
 
+        #endregion
+
         public Sorter()
         {
             List<Contact>[] areas = {caryE, caryNE, caryNW, carySE, carySW, caryW, earhartM, earhartW, firstStreetCentralM, firstStreetCentralW,
-            firstStreetEastM, firstStreetEastW, firstStreetWestM, firstStreetWestW, harrisonM, harrisonW, hawkinsM, hawkinsW, hillenbrandM, hillenbrandW, hilltopM, hilltopW,
-            honorsNorthM, honorsNorthW, honorsSouthM, honorsSouthW, mcCutcheonM, mcCutcheonW, meredithNE, meredithNW, meredithSE, meredithSW, owenM, owenW, shreveM, shreveW,
-            tark, thirdStreetM, thirdStreetW, wileyM, wileyW, windsorDuhme, windsorShealy, windsorVawter, windsorWalter, windsorWood};
+                firstStreetEastM, firstStreetEastW, firstStreetWestM, firstStreetWestW, harrisonM, harrisonW, hawkinsM, hawkinsW, hillenbrandM, hillenbrandW, hilltopM, hilltopW,
+                honorsNorthM, honorsNorthW, honorsSouthM, honorsSouthW, mcCutcheonM, mcCutcheonW, meredithNE, meredithNW, meredithSE, meredithSW, owenM, owenW, shreveM, shreveW,
+                tark, thirdStreetM, thirdStreetW, wileyM, wileyW, windsorDuhme, windsorShealy, windsorVawter, windsorWalter, windsorWood};
             targetAreaLists = new List<List<Contact>>(areas);
+            numTargetAreas = targetAreaLists.Count;
+
+            string[] files = { Resources.Cary_East, Resources.Cary_NorthEast, Resources.Cary_NorthWest, Resources.Cary_SouthEast, Resources.Cary_SouthWest,
+                Resources.Cary_West, Resources.Earhart_Men, Resources.Earhart_Women, Resources.FirstStreetCentral_Men, Resources.FirstStreetCentral_Women,
+                Resources.FirstStreetEast_Men, Resources.FirstStreetEast_Women, Resources.FirstStreetWest_Men, Resources.FirstStreetWest_Women, Resources.Harrison_Men,
+                Resources.Harrison_Women, Resources.Hawkins_Men, Resources.Hawkins_Women, Resources.Hillenbrand_Men, Resources.Hillenbrand_Women, Resources.Hilltop_Men,
+                Resources.Hilltop_Women, Resources.HonorsNorth_Men, Resources.HonorsNorth_Women, Resources.HonorsSouth_Men, Resources.HonorsSouth_Women, Resources.McCutcheon_Men,
+                Resources.McCutcheon_Women, Resources.Meredith_NorthEast, Resources.Meredith_NorthWest, Resources.Meredith_SouthEast, Resources.Meredith_SouthWest, Resources.Owen_Men,
+                Resources.Owen_Women, Resources.Shreve_Men, Resources.Shreve_Women, Resources.Tarkington, Resources.ThirdStreet_Men, Resources.ThirdStreet_Women, Resources.Wiley_Men,
+                Resources.Wiley_Women, Resources.Windsor_Duhme, Resources.Windsor_Shealy, Resources.Windsor_Vawter, Resources.Windsor_Walter, Resources.Windsor_Wood};
+            targetAreaFiles = new List<string>(files);
+
+            if (numTargetAreas != targetAreaFiles.Count)
+            {
+                Console.WriteLine("Number of Lists and Number of Files do not match");
+            }
         }
 
         public void Run()
@@ -74,36 +100,7 @@ namespace ContactSorter
 
         private void parseExistingContacts()
         {
-            //int numTargetAreas = 44;
-            //for (int i = 0; i < numTargetAreas; i++)
-            //{
-            //    string[] contacts;
-            //    List<Contact> currentList;
-            //    switch (i)
-            //    {
-            //        case 0:
-            //            contacts = Properties.Resources.Cary_East.Split('\n');
-            //            currentList = caryE;
-            //            break;
-            //        case 1:
-            //            contacts = Properties.Resources.Cary_NorthEast.Split('\n');
-            //            currentList = caryNE;
-            //            break;
-            //        case 2:
-            //            contacts = Properties.Resources.Cary_NorthWest.Split('\n');
-            //            currentList = caryNW;
-            //            break;
-            //        case 3:
-            //            contacts = Properties.Resources.Cary_SouthEast.Split('\n');
-            //            currentList = carySE;
-            //            break;
-            //        case 4:
-            //            contacts = Properties.Resources.Cary_SouthWest.Split('\n');
-            //            currentList = carySW;
-            //            break;
-            //        case 5:
-            //    }
-            //}
+            
         }
     }
 }

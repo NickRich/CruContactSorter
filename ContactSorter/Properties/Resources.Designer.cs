@@ -405,9 +405,9 @@ namespace ContactSorter.Properties {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string ThirdStreetWomen {
+        internal static string ThirdStreet_Women {
             get {
-                return ResourceManager.GetString("ThirdStreetWomen", resourceCulture);
+                return ResourceManager.GetString("ThirdStreet_Women", resourceCulture);
             }
         }
         

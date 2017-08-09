@@ -229,11 +229,11 @@
   <data name="Tarkington" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Tarkington.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="ThirdStreetWomen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ThirdStreetWomen.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="ThirdStreet_Men" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ThirdStreet_Men.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ThirdStreet_Women" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ThirdStreet_Women.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="Wiley_Men" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Wiley_Men.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
