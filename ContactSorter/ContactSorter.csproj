@@ -190,5 +190,14 @@
   <ItemGroup>
     <None Include="Resources\Windsor_Wood.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cary_NorthWest.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThirdStreet_Men.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThirdStreetWomen.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

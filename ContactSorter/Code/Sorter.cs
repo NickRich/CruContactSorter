@@ -9,57 +9,101 @@ namespace ContactSorter
     class Sorter
     {
         #region ---Global Variables---
-        private LinkedList<Contact> caryE = new LinkedList<Contact>();
-        private LinkedList<Contact> caryNE = new LinkedList<Contact>();
-        private LinkedList<Contact> caryNW = new LinkedList<Contact>();
-        private LinkedList<Contact> carySE = new LinkedList<Contact>();
-        private LinkedList<Contact> carySW = new LinkedList<Contact>();
-        private LinkedList<Contact> caryW = new LinkedList<Contact>();
-        private LinkedList<Contact> earhartM = new LinkedList<Contact>();
-        private LinkedList<Contact> earhartW = new LinkedList<Contact>();
-        private LinkedList<Contact> firstStreetCentralM = new LinkedList<Contact>();
-        private LinkedList<Contact> firstStreetCentralW = new LinkedList<Contact>();
-        private LinkedList<Contact> firstStreetEastM = new LinkedList<Contact>();
-        private LinkedList<Contact> firstStreetEastW = new LinkedList<Contact>();
-        private LinkedList<Contact> firstStreetWestM = new LinkedList<Contact>();
-        private LinkedList<Contact> firstStreetWestW = new LinkedList<Contact>();
-        private LinkedList<Contact> harrisonM = new LinkedList<Contact>();
-        private LinkedList<Contact> harrisonW = new LinkedList<Contact>();
-        private LinkedList<Contact> hawkinsM = new LinkedList<Contact>();
-        private LinkedList<Contact> hawkinsW = new LinkedList<Contact>();
-        private LinkedList<Contact> hillenbrandM = new LinkedList<Contact>();
-        private LinkedList<Contact> hillenbrandW = new LinkedList<Contact>();
-        private LinkedList<Contact> hilltopM = new LinkedList<Contact>();
-        private LinkedList<Contact> hilltopW = new LinkedList<Contact>();
-        private LinkedList<Contact> honorsNorthM = new LinkedList<Contact>();
-        private LinkedList<Contact> honorsNorthW = new LinkedList<Contact>();
-        private LinkedList<Contact> honorsSouthM = new LinkedList<Contact>();
-        private LinkedList<Contact> honorsSouthW = new LinkedList<Contact>();
-        private LinkedList<Contact> mcCutcheonM = new LinkedList<Contact>();
-        private LinkedList<Contact> mcCutcheonW = new LinkedList<Contact>();
-        private LinkedList<Contact> meredithNE = new LinkedList<Contact>();
-        private LinkedList<Contact> meredithNW = new LinkedList<Contact>();
-        private LinkedList<Contact> meredithSE = new LinkedList<Contact>();
-        private LinkedList<Contact> meredithSW = new LinkedList<Contact>();
-        private LinkedList<Contact> owenM = new LinkedList<Contact>();
-        private LinkedList<Contact> owenW = new LinkedList<Contact>();
-        private LinkedList<Contact> shreveM = new LinkedList<Contact>();
-        private LinkedList<Contact> shreveW = new LinkedList<Contact>();
-        private LinkedList<Contact> tark = new LinkedList<Contact>();
-        private LinkedList<Contact> thirdStreetM = new LinkedList<Contact>();
-        private LinkedList<Contact> thirdStreetW = new LinkedList<Contact>();
-        private LinkedList<Contact> wileyM = new LinkedList<Contact>();
-        private LinkedList<Contact> wileyW = new LinkedList<Contact>();
-        private LinkedList<Contact> windsorDuhme = new LinkedList<Contact>();
-        private LinkedList<Contact> windsorShealy = new LinkedList<Contact>();
-        private LinkedList<Contact> windsorVawter = new LinkedList<Contact>();
-        private LinkedList<Contact> windsorWalter = new LinkedList<Contact>();
-        private LinkedList<Contact> windsorWood = new LinkedList<Contact>();
+        private List<List<Contact>> targetAreaLists;
+        private List<Contact> caryE = new List<Contact>();
+        private List<Contact> caryNE = new List<Contact>();
+        private List<Contact> caryNW = new List<Contact>();
+        private List<Contact> carySE = new List<Contact>();
+        private List<Contact> carySW = new List<Contact>();
+        private List<Contact> caryW = new List<Contact>();
+        private List<Contact> earhartM = new List<Contact>();
+        private List<Contact> earhartW = new List<Contact>();
+        private List<Contact> firstStreetCentralM = new List<Contact>();
+        private List<Contact> firstStreetCentralW = new List<Contact>();
+        private List<Contact> firstStreetEastM = new List<Contact>();
+        private List<Contact> firstStreetEastW = new List<Contact>();
+        private List<Contact> firstStreetWestM = new List<Contact>();
+        private List<Contact> firstStreetWestW = new List<Contact>();
+        private List<Contact> harrisonM = new List<Contact>();
+        private List<Contact> harrisonW = new List<Contact>();
+        private List<Contact> hawkinsM = new List<Contact>();
+        private List<Contact> hawkinsW = new List<Contact>();
+        private List<Contact> hillenbrandM = new List<Contact>();
+        private List<Contact> hillenbrandW = new List<Contact>();
+        private List<Contact> hilltopM = new List<Contact>();
+        private List<Contact> hilltopW = new List<Contact>();
+        private List<Contact> honorsNorthM = new List<Contact>();
+        private List<Contact> honorsNorthW = new List<Contact>();
+        private List<Contact> honorsSouthM = new List<Contact>();
+        private List<Contact> honorsSouthW = new List<Contact>();
+        private List<Contact> mcCutcheonM = new List<Contact>();
+        private List<Contact> mcCutcheonW = new List<Contact>();
+        private List<Contact> meredithNE = new List<Contact>();
+        private List<Contact> meredithNW = new List<Contact>();
+        private List<Contact> meredithSE = new List<Contact>();
+        private List<Contact> meredithSW = new List<Contact>();
+        private List<Contact> owenM = new List<Contact>();
+        private List<Contact> owenW = new List<Contact>();
+        private List<Contact> shreveM = new List<Contact>();
+        private List<Contact> shreveW = new List<Contact>();
+        private List<Contact> tark = new List<Contact>();
+        private List<Contact> thirdStreetM = new List<Contact>();
+        private List<Contact> thirdStreetW = new List<Contact>();
+        private List<Contact> wileyM = new List<Contact>();
+        private List<Contact> wileyW = new List<Contact>();
+        private List<Contact> windsorDuhme = new List<Contact>();
+        private List<Contact> windsorShealy = new List<Contact>();
+        private List<Contact> windsorVawter = new List<Contact>();
+        private List<Contact> windsorWalter = new List<Contact>();
+        private List<Contact> windsorWood = new List<Contact>();
         #endregion
 
         public Sorter()
         {
+            List<Contact>[] areas = {caryE, caryNE, caryNW, carySE, carySW, caryW, earhartM, earhartW, firstStreetCentralM, firstStreetCentralW,
+            firstStreetEastM, firstStreetEastW, firstStreetWestM, firstStreetWestW, harrisonM, harrisonW, hawkinsM, hawkinsW, hillenbrandM, hillenbrandW, hilltopM, hilltopW,
+            honorsNorthM, honorsNorthW, honorsSouthM, honorsSouthW, mcCutcheonM, mcCutcheonW, meredithNE, meredithNW, meredithSE, meredithSW, owenM, owenW, shreveM, shreveW,
+            tark, thirdStreetM, thirdStreetW, wileyM, wileyW, windsorDuhme, windsorShealy, windsorVawter, windsorWalter, windsorWood};
+            targetAreaLists = new List<List<Contact>>(areas);
+        }
 
+        public void Run()
+        {
+            parseExistingContacts();
+        }
+
+        private void parseExistingContacts()
+        {
+            //int numTargetAreas = 44;
+            //for (int i = 0; i < numTargetAreas; i++)
+            //{
+            //    string[] contacts;
+            //    List<Contact> currentList;
+            //    switch (i)
+            //    {
+            //        case 0:
+            //            contacts = Properties.Resources.Cary_East.Split('\n');
+            //            currentList = caryE;
+            //            break;
+            //        case 1:
+            //            contacts = Properties.Resources.Cary_NorthEast.Split('\n');
+            //            currentList = caryNE;
+            //            break;
+            //        case 2:
+            //            contacts = Properties.Resources.Cary_NorthWest.Split('\n');
+            //            currentList = caryNW;
+            //            break;
+            //        case 3:
+            //            contacts = Properties.Resources.Cary_SouthEast.Split('\n');
+            //            currentList = carySE;
+            //            break;
+            //        case 4:
+            //            contacts = Properties.Resources.Cary_SouthWest.Split('\n');
+            //            currentList = carySW;
+            //            break;
+            //        case 5:
+            //    }
+            //}
         }
     }
 }

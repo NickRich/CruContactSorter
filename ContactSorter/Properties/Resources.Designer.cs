@@ -81,6 +81,15 @@ namespace ContactSorter.Properties {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        internal static string Cary_NorthWest {
+            get {
+                return ResourceManager.GetString("Cary_NorthWest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         internal static string Cary_SouthEast {
             get {
                 return ResourceManager.GetString("Cary_SouthEast", resourceCulture);
@@ -381,6 +390,24 @@ namespace ContactSorter.Properties {
         internal static string Tarkington {
             get {
                 return ResourceManager.GetString("Tarkington", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ThirdStreet_Men {
+            get {
+                return ResourceManager.GetString("ThirdStreet_Men", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ThirdStreetWomen {
+            get {
+                return ResourceManager.GetString("ThirdStreetWomen", resourceCulture);
             }
         }
         

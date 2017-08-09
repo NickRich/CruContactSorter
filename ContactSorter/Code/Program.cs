@@ -10,6 +10,8 @@ namespace ContactSorter
     {
         static void Main(string[] args)
         {
+            Sorter str = new Sorter();
+            str.Run();
         }
     }
 }
