@@ -214,6 +214,9 @@
   <data name="Meredith_SouthWest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Meredith_SouthWest.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="New_Contacts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\New_Contacts.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="Owen_Men" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Owen_Men.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>

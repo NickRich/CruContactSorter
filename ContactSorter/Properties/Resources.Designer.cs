@@ -351,6 +351,15 @@ namespace ContactSorter.Properties {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        internal static string New_Contacts {
+            get {
+                return ResourceManager.GetString("New_Contacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         internal static string Owen_Men {
             get {
                 return ResourceManager.GetString("Owen_Men", resourceCulture);

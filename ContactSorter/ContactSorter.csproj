@@ -200,5 +200,8 @@
   <ItemGroup>
     <None Include="Resources\ThirdStreet_Women.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New_Contacts.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

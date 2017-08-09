@@ -96,6 +96,7 @@ namespace ContactSorter
         public void Run()
         {
             parseExistingContacts();
+            parseNewContacts();
         }
 
         private void parseExistingContacts()
@@ -105,16 +106,115 @@ namespace ContactSorter
                 string[] targetAreaContacts = targetAreaFiles[i].Split('\n');
                 foreach (string cntc in targetAreaContacts)
                 {
-                    if (cntc != "") { 
-                        string[] cntcInfo = cntc.Split('\t');
-                        Contact newContact = new Contact(cntcInfo[0], cntcInfo[1], cntcInfo[2], cntcInfo[3], cntcInfo[4], cntcInfo[5], cntcInfo[6], cntcInfo[7], cntcInfo[8]);
-                        if (!targetAreaLists[i].Contains(newContact))
-                        {
-                            targetAreaLists[i].Add(newContact);
-                        }
+                    //Check if Valid Contact
+                    if (cntc == "")
+                        continue;
+
+                    string[] cntcInfo = cntc.Split('\t');
+                    Contact newContact = new Contact(cntcInfo[0], cntcInfo[1], cntcInfo[2], cntcInfo[3], cntcInfo[4], cntcInfo[5], cntcInfo[6], cntcInfo[7], cntcInfo[8]);
+                    if (!targetAreaLists[i].Contains(newContact))
+                    {
+                        targetAreaLists[i].Add(newContact);
                     }
                 }
             }
+        }
+
+        private void parseNewContacts()
+        {
+            string[] newContacts = Resources.New_Contacts.Split('\n');
+            foreach (string newCntct in newContacts)
+            {
+                //Check if Valid Contact
+                if (newCntct == "")
+                    continue;
+
+                string[] newContactInfo = newCntct.Split('\t');
+                Contact newContact = new Contact(newContactInfo[0], newContactInfo[1], newContactInfo[2], newContactInfo[3], newContactInfo[4],
+                    newContactInfo[5], newContactInfo[6], newContactInfo[7], newContactInfo[8]);
+
+                List<Contact> currentArea = DetermineTargetArea(newContact);
+
+                if (!currentArea.Contains(newContact))
+                {
+                    currentArea.Add(newContact);
+                }
+                else
+                {
+                    //TODO: Update Existing Contact
+                    //Current Thought: Get Index of where existing contact is found and update
+                }
+            }
+        }
+
+        private List<Contact> DetermineTargetArea(Contact contact)
+        {
+            switch (contact.Building)
+            {
+                case "Cary - East":
+                    return caryE;
+                case "Cary - NorthEast":
+                    return caryNE;
+                case "Cary - NorthWest":
+                    return caryNW;
+                case "Cary - SouthEast":
+                    return carySE;
+                case "Cary - SouthWest":
+                    return carySW;
+                case "Cary - West":
+                    return caryW;
+                case "Earhart":
+                    return (contact.Gender == "Male") ? earhartM : earhartW;
+                case "First Street Towers - Central":
+                    return (contact.Gender == "Male") ? firstStreetCentralM : firstStreetCentralW;
+                case "First Street Towers - East":
+                    return (contact.Gender == "Male") ? firstStreetEastM : firstStreetEastW;
+                case "First Street Towers - West":
+                    return (contact.Gender == "Male") ? firstStreetWestM : firstStreetWestW;
+                case "Harrison":
+                    return (contact.Gender == "Male") ? harrisonM : harrisonW;
+                case "Hawkins":
+                    return (contact.Gender == "Male") ? hawkinsM : hawkinsW;
+                case "Hillenbrand":
+                    return (contact.Gender == "Male") ? hillenbrandM : hillenbrandW;
+                case "Hilltop Apartments":
+                    return (contact.Gender == "Male") ? hilltopM : hilltopW;
+                case "Honors College Residences - North":
+                    return (contact.Gender == "Male") ? honorsNorthM : honorsNorthW;
+                case "Honors College Residences - South":
+                    return (contact.Gender == "Male") ? honorsSouthM : honorsSouthW;
+                case "McCutcheon":
+                    return (contact.Gender == "Male") ? mcCutcheonM : mcCutcheonW;
+                case "Meredith - NE":
+                    return meredithNE;
+                case "Meredith - NW":
+                    return meredithNW;
+                case "Meredith - SE":
+                    return meredithSE;
+                case "Meredith - SW":
+                    return meredithSW;
+                case "Owen":
+                    return (contact.Gender == "Male") ? owenM : owenW;
+                case "Shreve":
+                    return (contact.Gender == "Male") ? shreveM : shreveW;
+                case "Tarkington":
+                    return tark;
+                case "Third Street Suites":
+                    return (contact.Gender == "Male") ? thirdStreetM : thirdStreetW;
+                case "Wiley":
+                    return (contact.Gender == "Male") ? wileyM : wileyW;
+                case "Windsor - Duhme":
+                    return windsorDuhme;
+                case "Windsor - Shealy":
+                    return windsorShealy;
+                case "Windsor - Vawter":
+                    return windsorVawter;
+                case "Windsor - Walter":
+                    return windsorWalter;
+                case "Windsor - Wood":
+                    return windsorWood;
+            }
+            return null;
         }
     }
 }
