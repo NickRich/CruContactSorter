@@ -8,5 +8,57 @@ namespace ContactSorter
 {
     class Contact
     {
+        #region ---Global Variables---
+        private string name;
+        private string building;
+        private string room;
+        private string gender;
+        private string religion;
+        private string relationInterest;
+        private string cruInfo;
+        private string convoInterest;
+        private string race;
+        private bool talkedWith;
+        #endregion
+
+        public Contact(string name, string building, string room, string gender, string religion,
+            string relationInterest, string cruInfo, string convoInterest, string race)
+        {
+            this.name = name;
+            this.building = building;
+            this.room = room;
+            this.gender = gender;
+            this.religion = religion;
+            this.relationInterest = relationInterest;
+            this.cruInfo = cruInfo;
+            this.convoInterest = convoInterest;
+            this.race = race;
+            this.talkedWith = false;
+        }
+
+        #region ---Encapsulation---
+        public string Name { get => name; set => name = value; }
+        public string Building { get => building; set => building = value; }
+        public string Room { get => room; set => room = value; }
+        public string Gender { get => gender; set => gender = value; }
+        public string Religion { get => religion; set => religion = value; }
+        public string RelationInterest { get => relationInterest; set => relationInterest = value; }
+        public string CruInfo { get => cruInfo; set => cruInfo = value; }
+        public string ConvoInterest { get => convoInterest; set => convoInterest = value; }
+        public string Race { get => race; set => race = value; }
+        public bool TalkedWith { get => talkedWith; set => talkedWith = value; }
+        #endregion
+
+        /// <summary>
+        /// Compares 2 Contacts based on Name, Building, and Room since if these 3 match they are probably the same person
+        /// </summary>
+        /// <param name="cntc">Contact to compare to</param>
+        /// <returns></returns>
+        public bool equals(Contact cntc)
+        {
+            if (this.name == cntc.Name && this.building == cntc.Building && this.room == cntc.Room)
+                return true;
+            return false;
+        }
     }
 }
