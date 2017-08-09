@@ -100,7 +100,21 @@ namespace ContactSorter
 
         private void parseExistingContacts()
         {
-            
+            for (int i = 0; i < numTargetAreas; i++)
+            {
+                string[] targetAreaContacts = targetAreaFiles[i].Split('\n');
+                foreach (string cntc in targetAreaContacts)
+                {
+                    if (cntc != "") { 
+                        string[] cntcInfo = cntc.Split('\t');
+                        Contact newContact = new Contact(cntcInfo[0], cntcInfo[1], cntcInfo[2], cntcInfo[3], cntcInfo[4], cntcInfo[5], cntcInfo[6], cntcInfo[7], cntcInfo[8]);
+                        if (!targetAreaLists[i].Contains(newContact))
+                        {
+                            targetAreaLists[i].Add(newContact);
+                        }
+                    }
+                }
+            }
         }
     }
 }
