@@ -275,10 +275,10 @@ namespace ContactSorter
                 ws.Cells[1, "J"] = "Interested in Conversation";
                 ws.Cells[1, "K"] = "Talked With";
 
-                int j = 2;                
+                int j = 2;
                 foreach (Contact cntct in list)
                 {
-                    
+
                     ws.Cells[j, "A"] = cntct.Name;
                     ws.Cells[j, "B"] = cntct.Gender;
                     ws.Cells[j, "C"] = cntct.Race;
@@ -290,13 +290,20 @@ namespace ContactSorter
                     ws.Cells[j, "I"] = cntct.CruInfo;
                     ws.Cells[j, "J"] = cntct.ConvoInterest;
                     ws.Cells[j, "K"] = cntct.TalkedWith;
-                    
+
                     WriteToTxtFile(i, cntct);
                     j++;
                 }
                 ws.Columns.AutoFit();
-                wb.SaveAs(string.Format(@"D:\Cru Contacts\{0}.xlsx", targetAreaNames[i]), Excel.XlFileFormat.xlOpenXMLWorkbook, null, null,
-                    false, false, Excel.XlSaveAsAccessMode.xlNoChange, null, null, null, null, null);
+                try
+                {
+                    wb.SaveAs(string.Format(@"D:\Cru Contacts\{0}.xlsx", targetAreaNames[i]), Excel.XlFileFormat.xlOpenXMLWorkbook, null, null,
+                        false, false, Excel.XlSaveAsAccessMode.xlNoChange, null, null, null, null, null);
+                }
+                catch (System.Runtime.InteropServices.COMException comexcep)
+                {
+                    Console.WriteLine(comexcep.ErrorCode);
+                }
                 i++;
             }
         }
