@@ -22,7 +22,7 @@ namespace ContactSorter
         private bool talkedWith;
         #endregion
 
-        public Contact(string name, string gender, string race, string grade, string building, string room,string religion,
+        public Contact(string name, string gender, string race, string grade, string building, string room, string religion,
             string relationInterest, string cruInfo, string convoInterest)
         {
             this.name = name;
@@ -49,6 +49,7 @@ namespace ContactSorter
         public string ConvoInterest { get => convoInterest; set => convoInterest = value; }
         public string Race { get => race; set => race = value; }
         public bool TalkedWith { get => talkedWith; set => talkedWith = value; }
+        public string Grade { get => grade; set => grade = value; }
         #endregion
 
         /// <summary>

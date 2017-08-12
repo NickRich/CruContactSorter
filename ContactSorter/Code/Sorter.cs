@@ -7,6 +7,7 @@ using System.Globalization;
 using System.Collections;
 using System.Resources;
 using ContactSorter.Properties;
+using System.Reflection;
 
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -21,6 +22,8 @@ namespace ContactSorter
         #region ---Lists---
         private List<string> targetAreaFiles;
         private List<List<Contact>> targetAreaLists;
+        private List<string> targetAreaNames;
+
         private List<Contact> caryE = new List<Contact>();
         private List<Contact> caryNE = new List<Contact>();
         private List<Contact> caryNW = new List<Contact>();
@@ -90,7 +93,15 @@ namespace ContactSorter
                 Resources.Wiley_Women, Resources.Windsor_Duhme, Resources.Windsor_Shealy, Resources.Windsor_Vawter, Resources.Windsor_Walter, Resources.Windsor_Wood};
             targetAreaFiles = new List<string>(files);
 
-            if (numTargetAreas != targetAreaFiles.Count)
+
+            string[] names = {"Cary-E", "Cary-NE", "Cary-NW", "Cary-SE", "Cary-SW", "Cary-W", "Earhart-Men", "Earhart-Women", "First Street Central-Men", "First Street Central-Women",
+                "First Street East-Men", "First Street East-Women", "First Street West-Men", "First Street West-Women", "Harrison-Men", "Harrison-Women", "Hawkins-Men", "Hawkins-Women", "Hillenbrand-Men",
+                "Hillenbrand-Women", "Hilltop-Men", "Hilltop-Women", "Honors North-Men", "Honors North - Women", "Honors South-Men", "Honors South-Women", "McCutcheon-Men", "McCutcheon-Women", "Meredith-NE",
+                "Meredith-NW", "Meredith-SE", "Meredith-SW", "Owen-Men", "Owen-Women", "Shreve-Men", "Shreve-Women", "Tarkington", "Third Street-Men", "Third Street-Women", "Wiley-Men", "Wiley-Women", "Windsor-Duhme",
+                "Windsor-Shealy", "Windsor-Vawter", "Windsor-Walter", "Windsor-Wood"};
+            targetAreaNames = new List<string>(names);
+
+            if (numTargetAreas != targetAreaFiles.Count && numTargetAreas != targetAreaNames.Count)
             {
                 Console.WriteLine("Number of Lists and Number of Files do not match");
             }
@@ -101,6 +112,7 @@ namespace ContactSorter
             parseExistingContacts();
             parseNewContacts();
             sortLists();
+            writeContacts();
         }
 
         #region ---Parsing Contacts---
@@ -235,9 +247,42 @@ namespace ContactSorter
 
         private void writeContacts()
         {
+            Excel.Application xlApp = new Excel.Application();
+            if (xlApp == null)
+            {
+                Console.WriteLine("Excel Could Not be started");
+                return;
+            }
+            xlApp.Visible = true;
+
+            int i = 0;
             foreach (List<Contact> list in targetAreaLists)
             {
-
+                Excel.Workbook wb = xlApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+                Excel.Worksheet ws = (Excel.Worksheet)wb.Worksheets[1];
+                ws.Cells[1, "A"] = "Name";
+                ws.Cells[1, "B"] = "Gender";
+                ws.Cells[1, "C"] = "Race";
+                ws.Cells[1, "D"] = "Grade";
+                ws.Cells[1, "E"] = "Building";
+                ws.Cells[1, "F"] = "Room";
+                ws.Cells[1, "G"] = "Religion";
+                ws.Cells[1, "H"] = "Interested in Cru Info";
+                ws.Cells[1, "I"] = "Interested in Conversation";
+                int j = 2;
+                foreach (Contact cntct in list)
+                {
+                    ws.Cells[j, "A"] = cntct.Name;
+                    ws.Cells[j, "B"] = cntct.Gender;
+                    ws.Cells[j, "C"] = cntct.Race;
+                    ws.Cells[j, "D"] = cntct.Grade;
+                    ws.Cells[j, "E"] = cntct.Building;
+                    ws.Cells[j, "F"] = cntct.Room;
+                    ws.Cells[j, "G"] = cntct.Religion;
+                    ws.Cells[j, "H"] = cntct.CruInfo;
+                    ws.Cells[j, "I"] = cntct.ConvoInterest;
+                    j++;
+                }
             }
         }
     }
