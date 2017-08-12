@@ -295,7 +295,7 @@ namespace ContactSorter
                     j++;
                 }
                 ws.Columns.AutoFit();
-                wb.SaveAs(string.Format(@"D:\Cru Contacts\{0}.xlsx", targetAreaNames[i]), Excel.XlFileFormat.xlXMLSpreadsheet, null, null,
+                wb.SaveAs(string.Format(@"D:\Cru Contacts\{0}.xlsx", targetAreaNames[i]), Excel.XlFileFormat.xlOpenXMLWorkbook, null, null,
                     false, false, Excel.XlSaveAsAccessMode.xlNoChange, null, null, null, null, null);
                 i++;
             }
