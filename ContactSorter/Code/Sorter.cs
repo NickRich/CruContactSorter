@@ -94,11 +94,11 @@ namespace ContactSorter
             targetAreaFiles = new List<string>(files);
 
 
-            string[] names = {"Cary-E", "Cary-NE", "Cary-NW", "Cary-SE", "Cary-SW", "Cary-W", "Earhart-Men", "Earhart-Women", "First Street Central-Men", "First Street Central-Women",
-                "First Street East-Men", "First Street East-Women", "First Street West-Men", "First Street West-Women", "Harrison-Men", "Harrison-Women", "Hawkins-Men", "Hawkins-Women", "Hillenbrand-Men",
-                "Hillenbrand-Women", "Hilltop-Men", "Hilltop-Women", "Honors North-Men", "Honors North - Women", "Honors South-Men", "Honors South-Women", "McCutcheon-Men", "McCutcheon-Women", "Meredith-NE",
-                "Meredith-NW", "Meredith-SE", "Meredith-SW", "Owen-Men", "Owen-Women", "Shreve-Men", "Shreve-Women", "Tarkington", "Third Street-Men", "Third Street-Women", "Wiley-Men", "Wiley-Women", "Windsor-Duhme",
-                "Windsor-Shealy", "Windsor-Vawter", "Windsor-Walter", "Windsor-Wood"};
+            string[] names = {"Cary_East", "Cary_NorthEast", "Cary_NorthWest", "Cary_SouthEast", "Cary_SouthWest", "Cary_West", "Earhart_Men", "Earhart_Women", "FirstStreetCentral_Men", "FirstStreetCentral_Women",
+                "FirstStreetEast_Men", "FirstStreetEast_Women", "FirstStreetWest_Men", "FirstStreetWest_Women", "Harrison_Men", "Harrison_Women", "Hawkins_Men", "Hawkins_Women", "Hillenbrand_Men",
+                "Hillenbrand_Women", "Hilltop_Men", "Hilltop_Women", "HonorsNorth_Men", "HonorsNorth_Women", "HonorsSouth_Men", "HonorsSouth_Women", "McCutcheon_Men", "McCutcheon_Women", "Meredith_NorthEast",
+                "Meredith_NorthWest", "Meredith_SouthEast", "Meredith_SouthWest", "Owen_Men", "Owen_Women", "Shreve_Men", "Shreve_Women", "Tarkington", "ThirdStreet_Men", "ThirdStreet_Women", "Wiley_Men", "Wiley_Women", "Windsor_Duhme",
+                "Windsor_Shealy", "Windsor_Vawter", "Windsor_Walter", "Windsor_Wood"};
             targetAreaNames = new List<string>(names);
 
             if (numTargetAreas != targetAreaFiles.Count && numTargetAreas != targetAreaNames.Count)
@@ -129,8 +129,10 @@ namespace ContactSorter
                         continue;
 
                     string[] cntcInfo = cntc.Split('\t');
+                    if (cntcInfo[0] == "Name")
+                        continue;
                     Contact newContact = new Contact(cntcInfo[0], cntcInfo[1], cntcInfo[2], cntcInfo[3], cntcInfo[4], cntcInfo[5],
-                        cntcInfo[6], cntcInfo[7], cntcInfo[8], cntcInfo[9]);
+                        cntcInfo[6], cntcInfo[7], cntcInfo[8], cntcInfo[9], cntcInfo[10]);
                     if (!targetAreaLists[i].Contains(newContact))
                     {
                         targetAreaLists[i].Add(newContact);
@@ -253,11 +255,12 @@ namespace ContactSorter
                 Console.WriteLine("Excel Could Not be started");
                 return;
             }
-            xlApp.Visible = true;
 
             int i = 0;
+            string[] headerString = { "Name\tGender\tRace\tGrade\tBuilding\tRoom\tReligion\tRelationship Interest\tInterested in Cru Info\tInterested in Conversation\tTalked To" };
             foreach (List<Contact> list in targetAreaLists)
             {
+                System.IO.File.WriteAllLines(string.Format("../../Resources/{0}.txt", targetAreaNames[i]), headerString);
                 Excel.Workbook wb = xlApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
                 Excel.Worksheet ws = (Excel.Worksheet)wb.Worksheets[1];
                 ws.Cells[1, "A"] = "Name";
@@ -267,11 +270,15 @@ namespace ContactSorter
                 ws.Cells[1, "E"] = "Building";
                 ws.Cells[1, "F"] = "Room";
                 ws.Cells[1, "G"] = "Religion";
-                ws.Cells[1, "H"] = "Interested in Cru Info";
-                ws.Cells[1, "I"] = "Interested in Conversation";
+                ws.Cells[j, "H"] = "Relationship With God Interest";
+                ws.Cells[1, "I"] = "Interested in Cru Info";
+                ws.Cells[1, "J"] = "Interested in Conversation";
+                ws.Cells[1, "K"] = "Talked With";
                 int j = 2;
+                
                 foreach (Contact cntct in list)
                 {
+                    
                     ws.Cells[j, "A"] = cntct.Name;
                     ws.Cells[j, "B"] = cntct.Gender;
                     ws.Cells[j, "C"] = cntct.Race;
@@ -279,10 +286,25 @@ namespace ContactSorter
                     ws.Cells[j, "E"] = cntct.Building;
                     ws.Cells[j, "F"] = cntct.Room;
                     ws.Cells[j, "G"] = cntct.Religion;
-                    ws.Cells[j, "H"] = cntct.CruInfo;
-                    ws.Cells[j, "I"] = cntct.ConvoInterest;
+                    ws.Cells[j, "H"] = cntct.RelationInterest;
+                    ws.Cells[j, "I"] = cntct.CruInfo;
+                    ws.Cells[j, "J"] = cntct.ConvoInterest;
+                    ws.Cells[j, "K"] = cntct.TalkedWith;
+                    
+                    WriteToTxtFile(i, cntct);
                     j++;
                 }
+                i++;
+            }
+        }
+
+        private void WriteToTxtFile(int targetAreaNum, Contact cntct)
+        {
+            string contactInfo = cntct.ToString();
+            using (System.IO.StreamWriter file
+                = new System.IO.StreamWriter(string.Format("../../Resources/{0}.txt", targetAreaNames[targetAreaNum]), true))
+            {
+                file.WriteLine(cntct.ToString());
             }
         }
     }

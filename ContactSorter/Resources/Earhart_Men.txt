@@ -1,0 +1,2 @@
+Name	Gender	Race	Grade	Building	Room	Religion	Relationship Interest	Interested in Cru Info	Interested in Conversation	Talked To
+Nick Richardson	Male	White / Caucasian	Junior	Earhart	735	Christian	10	Yes	Yes	False

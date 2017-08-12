@@ -38,6 +38,22 @@ namespace ContactSorter
             this.talkedWith = false;
         }
 
+        public Contact(string name, string gender, string race, string grade, string building, string room, string religion,
+    string relationInterest, string cruInfo, string convoInterest, string talkedWith)
+        {
+            this.name = name;
+            this.grade = grade;
+            this.building = building;
+            this.room = room;
+            this.gender = gender;
+            this.race = race;
+            this.religion = religion;
+            this.relationInterest = relationInterest;
+            this.cruInfo = cruInfo;
+            this.convoInterest = convoInterest;
+            this.talkedWith = (talkedWith == "False\r") ? false : true;
+        }
+
         #region ---Encapsulation---
         public string Name { get => name; set => name = value; }
         public string Building { get => building; set => building = value; }
@@ -62,6 +78,11 @@ namespace ContactSorter
             if (this.name == cntc.Name && this.building == cntc.Building && this.room == cntc.Room)
                 return true;
             return false;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}\t{10}", name, gender, race, grade, building, room, religion, relationInterest, cruInfo, convoInterest, talkedWith);
         }
     }
 }
