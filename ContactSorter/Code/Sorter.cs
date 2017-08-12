@@ -270,12 +270,12 @@ namespace ContactSorter
                 ws.Cells[1, "E"] = "Building";
                 ws.Cells[1, "F"] = "Room";
                 ws.Cells[1, "G"] = "Religion";
-                ws.Cells[j, "H"] = "Relationship With God Interest";
+                ws.Cells[1, "H"] = "Relationship With God Interest";
                 ws.Cells[1, "I"] = "Interested in Cru Info";
                 ws.Cells[1, "J"] = "Interested in Conversation";
                 ws.Cells[1, "K"] = "Talked With";
-                int j = 2;
-                
+
+                int j = 2;                
                 foreach (Contact cntct in list)
                 {
                     
@@ -294,6 +294,9 @@ namespace ContactSorter
                     WriteToTxtFile(i, cntct);
                     j++;
                 }
+                ws.Columns.AutoFit();
+                wb.SaveAs(string.Format(@"D:\Cru Contacts\{0}.xlsx", targetAreaNames[i]), Excel.XlFileFormat.xlXMLSpreadsheet, null, null,
+                    false, false, Excel.XlSaveAsAccessMode.xlNoChange, null, null, null, null, null);
                 i++;
             }
         }
