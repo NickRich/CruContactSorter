@@ -109,6 +109,7 @@ namespace ContactSorter
 
         public void Run()
         {
+
             ParseExistingContacts();
             ClearExistingContacts();
             ParseNewContacts();
@@ -143,10 +144,17 @@ namespace ContactSorter
                         continue;
                     Contact newContact = new Contact(cntcInfo[0], cntcInfo[1], cntcInfo[2], cntcInfo[3], cntcInfo[4], cntcInfo[5],
                         cntcInfo[6], cntcInfo[7], cntcInfo[8], cntcInfo[9], cntcInfo[10]);
-                    if (!targetAreaLists[i].Contains(newContact))
+                    bool contactExists = false;
+                    foreach (Contact contact in targetAreaLists[i])
                     {
-                        targetAreaLists[i].Add(newContact);
+                        if (newContact.Equals(contact))
+                        {
+                            contactExists = true;
+                            break;
+                        }
                     }
+                    if (!contactExists)
+                        targetAreaLists[i].Add(newContact);
                 }
             }
         }
@@ -165,16 +173,17 @@ namespace ContactSorter
                     newContactInfo[5], newContactInfo[6], newContactInfo[7], newContactInfo[8], newContactInfo[9]);
 
                 List<Contact> currentArea = DetermineTargetArea(newContact);
-
-                if (!currentArea.Contains(newContact))
+                bool contactExists = false;
+                foreach (Contact contact in currentArea)
                 {
+                    if (newContact.Equals(contact))
+                    {
+                        contactExists = true;
+                        break;
+                    }
+                }
+                if (!contactExists)
                     currentArea.Add(newContact);
-                }
-                else
-                {
-                    //TODO: Update Existing Contact
-                    //Current Thought: Get Index of where existing contact is found and update
-                }
             }
         }
 
@@ -267,7 +276,7 @@ namespace ContactSorter
             }
 
             int i = 0;
-            string[] headerString = { string.Format("Name\tGender\tRace\tGrade\tBuilding\tRoom\tReligion\tRelationship Interest\tInterested in Cru Info\tInterested in Conversation\tTalked To{0}", Environment.NewLine) };
+            string[] headerString = { "Name\tGender\tRace\tGrade\tBuilding\tRoom\tReligion\tRelationship Interest\tInterested in Cru Info\tInterested in Conversation\tTalked To" };
             foreach (List<Contact> list in targetAreaLists)
             {
                 System.IO.File.WriteAllLines(string.Format("../../Resources/{0}.txt", targetAreaNames[i]), headerString);

@@ -1,3 +1,2 @@
 Name	Gender	Race	Grade	Building	Room	Religion	Relationship Interest	Interested in Cru Info	Interested in Conversation	Talked To
-
 Ivana Tinkle	Female	White / Caucasian	Sophomore	Owen	207	Christian	10	Yes	Maybe	False

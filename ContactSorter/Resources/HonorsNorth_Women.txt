@@ -1,3 +1,2 @@
 Name	Gender	Race	Grade	Building	Room	Religion	Relationship Interest	Interested in Cru Info	Interested in Conversation	Talked To
-
 Paul	Female	White / Caucasian	Sophomore	Honors College Residences - North	1167	Christian	8	Maybe	Yes	False

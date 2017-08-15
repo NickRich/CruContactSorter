@@ -1,3 +1,2 @@
 Name	Gender	Race	Grade	Building	Room	Religion	Relationship Interest	Interested in Cru Info	Interested in Conversation	Talked To
-
 Mr. Mee-Seeks	Male	Blue	Freshman	Cary - West	1123	Christian	7	Maybe	No	False

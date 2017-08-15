@@ -1,3 +1,2 @@
 Name	Gender	Race	Grade	Building	Room	Religion	Relationship Interest	Interested in Cru Info	Interested in Conversation	Talked To
-
 Ethan Hall	Male	Native American / American Indian	Senior	Owen	1	Jewish	9	Yes	Yes	False

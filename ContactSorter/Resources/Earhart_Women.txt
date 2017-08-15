@@ -1,6 +1,4 @@
 Name	Gender	Race	Grade	Building	Room	Religion	Relationship Interest	Interested in Cru Info	Interested in Conversation	Talked To
-
 Sara Hansen	Female	White / Caucasian	Senior	Earhart	0	Christian	10	No	No	False
-Alyssa Alexander 	Female	White / Caucasian	Sophomore	Earhart	173	Christian	10	Maybe	No	False
 Alyssa Alexander 	Female	White / Caucasian	Sophomore	Earhart	173	Christian	10	Maybe	No	False
 Elizabeth Brown	Female	White / Caucasian	Senior	Earhart	858	Christian	10	Yes	Yes	False

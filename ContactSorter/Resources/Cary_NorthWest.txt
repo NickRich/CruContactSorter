@@ -1,4 +1,2 @@
 Name	Gender	Race	Grade	Building	Room	Religion	Relationship Interest	Interested in Cru Info	Interested in Conversation	Talked To
-
-Christy Mitchells	Female	Black / African American	Freshman	Cary - NorthWest	222	Catholic	4	No	Maybe
-	False
+Christy Mitchells	Female	Black / African American	Freshman	Cary - NorthWest	222	Catholic	4	No	Maybe	False
