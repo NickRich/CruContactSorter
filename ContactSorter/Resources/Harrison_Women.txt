@@ -1,1 +1,3 @@
 Name	Gender	Race	Grade	Building	Room	Religion	Relationship Interest	Interested in Cru Info	Interested in Conversation	Talked To
+
+Georgia Peach	Female	White / Caucasian	Freshman	Harrison	527	Christian	6	Maybe	Maybe	False

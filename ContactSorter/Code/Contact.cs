@@ -73,7 +73,7 @@ namespace ContactSorter
         /// </summary>
         /// <param name="cntc">Contact to compare to</param>
         /// <returns></returns>
-        public bool equals(Contact cntc)
+        public bool Equals(Contact cntc)
         {
             if (this.name == cntc.Name && this.building == cntc.Building && this.room == cntc.Room)
                 return true;

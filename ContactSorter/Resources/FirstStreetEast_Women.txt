@@ -1,1 +1,4 @@
 Name	Gender	Race	Grade	Building	Room	Religion	Relationship Interest	Interested in Cru Info	Interested in Conversation	Talked To
+
+Alex Fyffe	Female	White / Caucasian	Junior	First Street Towers - East	352	Christian	10	Yes	Yes	False
+Sara Smith	Female	White / Caucasian	Sophomore	First Street Towers - East	354	Christian	10	Yes	Yes	False

@@ -109,15 +109,25 @@ namespace ContactSorter
 
         public void Run()
         {
-            parseExistingContacts();
-            parseNewContacts();
-            sortLists();
-            writeContacts();
+            ParseExistingContacts();
+            ClearExistingContacts();
+            ParseNewContacts();
+            SortLists();
+            WriteContacts();
+        }
+
+        private void ClearExistingContacts()
+        {
+
+            for (int i = 0; i < numTargetAreas; i++)
+            {
+                System.IO.File.WriteAllText(string.Format("../../Resources/{0}.txt", targetAreaNames[i]), String.Empty);
+            }
         }
 
         #region ---Parsing Contacts---
 
-        private void parseExistingContacts()
+        private void ParseExistingContacts()
         {
             for (int i = 0; i < numTargetAreas; i++)
             {
@@ -141,7 +151,7 @@ namespace ContactSorter
             }
         }
 
-        private void parseNewContacts()
+        private void ParseNewContacts()
         {
             string[] newContacts = Resources.New_Contacts.Split('\n');
             foreach (string newCntct in newContacts)
@@ -239,7 +249,7 @@ namespace ContactSorter
         }
         #endregion
 
-        private void sortLists()
+        private void SortLists()
         {
             foreach (List<Contact> cntctList in targetAreaLists)
             {
@@ -247,7 +257,7 @@ namespace ContactSorter
             }
         }
 
-        private void writeContacts()
+        private void WriteContacts()
         {
             Excel.Application xlApp = new Excel.Application();
             if (xlApp == null)
@@ -257,7 +267,7 @@ namespace ContactSorter
             }
 
             int i = 0;
-            string[] headerString = { "Name\tGender\tRace\tGrade\tBuilding\tRoom\tReligion\tRelationship Interest\tInterested in Cru Info\tInterested in Conversation\tTalked To" };
+            string[] headerString = { string.Format("Name\tGender\tRace\tGrade\tBuilding\tRoom\tReligion\tRelationship Interest\tInterested in Cru Info\tInterested in Conversation\tTalked To{0}", Environment.NewLine) };
             foreach (List<Contact> list in targetAreaLists)
             {
                 System.IO.File.WriteAllLines(string.Format("../../Resources/{0}.txt", targetAreaNames[i]), headerString);

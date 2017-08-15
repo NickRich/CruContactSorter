@@ -1,1 +1,3 @@
 Name	Gender	Race	Grade	Building	Room	Religion	Relationship Interest	Interested in Cru Info	Interested in Conversation	Talked To
+
+Tot A. Leejit	Male	Hispanic / Latin American	Senior	Shreve	4561	Atheist	2	No	No	False

@@ -1,1 +1,5 @@
 Name	Gender	Race	Grade	Building	Room	Religion	Relationship Interest	Interested in Cru Info	Interested in Conversation	Talked To
+
+Bill Board	Male	White / Caucasian	Freshman	Earhart	123	Christian	8	Maybe	Maybe	False
+Daved Ostman	Male	White / Caucasian	Sophomore	Earhart	507	Christian	10	Yes	Yes	False
+Bob Jones	Male	White / Caucasian	Freshman	Earhart	735	Christian	10	Yes	Yes	False

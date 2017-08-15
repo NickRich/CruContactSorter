@@ -1,1 +1,3 @@
 Name	Gender	Race	Grade	Building	Room	Religion	Relationship Interest	Interested in Cru Info	Interested in Conversation	Talked To
+
+Mr. Bo-Jangles	Female	Native American / American Indian	Mega Senior	Hilltop Apartments	20	Taoist	9	Yes	Yes	False

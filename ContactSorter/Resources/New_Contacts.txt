@@ -1,0 +1,20 @@
+Alex Fyffe	Female	White / Caucasian	Junior	First Street Towers - East	352	Christian	10	Yes	Yes
+Bob Jones	Male	White / Caucasian	Freshman	Earhart	735	Christian	10	Yes	Yes
+Alyssa Alexander 	Female	White / Caucasian	Sophomore	Earhart	173	Christian	10	Maybe	No
+Alyssa Alexander 	Female	White / Caucasian	Sophomore	Earhart	173	Christian	10	Maybe	No
+Elizabeth Brown	Female	White / Caucasian	Senior	Earhart	858	Christian	10	Yes	Yes
+Georgia Peach	Female	White / Caucasian	Freshman	Harrison	527	Christian	6	Maybe	Maybe
+Brother Nick	Male	Native American / American Indian	Junior	Cary - SouthEast	225	Christian	10	No	No
+Elaine Nicolls	Female	Hispanic / Latin American	Sophomore	Meredith - NE	222	Scientologist	3	No	Yes
+Christy Mitchells	Female	Black / African American	Freshman	Cary - NorthWest	222	Catholic	4	No	Maybe
+Daved Ostman	Male	White / Caucasian	Sophomore	Earhart	507	Christian	10	Yes	Yes
+Ethan Hall	Male	Native American / American Indian	Senior	Owen	1	Jewish	9	Yes	Yes
+Sara Hansen	Female	White / Caucasian	Senior	Earhart	0	Christian	10	No	No
+Bill Board	Male	White / Caucasian	Freshman	Earhart	123	Christian	8	Maybe	Maybe
+Mr. Bo-Jangles	Female	Native American / American Indian	Mega Senior	Hilltop Apartments	20	Taoist	9	Yes	Yes
+Mr. Mee-Seeks	Male	Blue	Freshman	Cary - West	1123	Christian	7	Maybe	No
+Aunt Jemima	Female	Black / African American	Junior	Meredith - NE	4529	Jewish	4	No	Yes
+Paul	Female	White / Caucasian	Sophomore	Honors College Residences - North	1167	Christian	8	Maybe	Yes
+Tot A. Leejit	Male	Hispanic / Latin American	Senior	Shreve	4561	Atheist	2	No	No
+Ivana Tinkle	Female	White / Caucasian	Sophomore	Owen	207	Christian	10	Yes	Maybe
+Sara Smith	Female	White / Caucasian	Sophomore	First Street Towers - East	354	Christian	10	Yes	Yes
